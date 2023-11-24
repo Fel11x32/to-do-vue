@@ -1,6 +1,6 @@
 <script setup>
 import { ref, watch, onMounted } from 'vue'
-import MyInput from './UI/MyInput.vue'
+import MyInputName from './UI/MyInputName.vue'
 
 const name = ref('')
 
@@ -17,7 +17,7 @@ onMounted(() => {
 		<div class="container">
 			<h2 class="title">
 				What's up,
-				<MyInput placeholder="Name here" type="text" v-model="name" />
+				<MyInputName placeholder="Name here" type="text" v-model="name" />
 			</h2>
 		</div>
 	</section>
@@ -27,8 +27,5 @@ onMounted(() => {
 .title {
 	display: flex;
 	gap: .5rem;
-}
-section {
-	margin-top: 1.2rem;
 }
 </style>
