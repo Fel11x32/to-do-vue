@@ -1,12 +1,17 @@
 <template>
 	<div class="todo">
-		<span class="bubble" :class="todo.type"></span>
-		<div class="todo__title">{{ todo.title }}</div>
+		<div class="todo__body">
+			<span class="bubble" :class="todo.type"></span>
+			<div class="todo__title">{{ todo.title }}</div>
+		</div>
+
+		<MyButton @click="$emit('remove', todo)" class="delete">Delete</MyButton>
 	</div>
 </template>
 
 <script setup>
-import MyInput from './UI/MyInput.vue';
+import MyButton from './UI/MyButton.vue'
+import MyInput from './UI/MyInput.vue'
 
 defineProps({
 	todo: {
@@ -20,6 +25,7 @@ defineProps({
 .todo {
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
 	background-color: #fff;
 	padding: 1rem;
 	border-radius: 0.5rem;
@@ -27,8 +33,14 @@ defineProps({
 	color: var(--dark);
 	margin-bottom: 1rem;
 }
-
+.todo__body {
+	display: flex;
+	align-items: center;
+}
 .todo__title {
-	margin-left: .5rem;
+	margin-left: 0.5rem;
+}
+.delete {
+	background-color: var(--danger);
 }
 </style>

@@ -12,6 +12,9 @@ const addTodo = newTodo => {
 	}
 	todos.value.push(newTodo)
 }
+const removeTodo = todo => {
+	todos.value = todos.value.filter(t => t.id !== todo.id)
+}
 
 const todoAsc = computed(() => todos.value.sort((a, b) => {
 	return b.id - a.id
@@ -22,7 +25,7 @@ const todoAsc = computed(() => todos.value.sort((a, b) => {
 	<main class="main">
 		<Greeting class="greeting-section" />
 		<CreateTodo @create="addTodo" class="create-to-do-section" />
-		<TodosList class="todos-list" :todos="todoAsc" />
+		<TodosList @remove="removeTodo" class="todos-list" :todos="todoAsc" />
 	</main>
 </template>
 

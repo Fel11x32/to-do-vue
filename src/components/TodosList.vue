@@ -8,6 +8,7 @@
 					v-for="todo in todos"
 					:todo="todo"
 					:key="todo.id"
+					@remove="$emit('remove', todo)"
 				/>
 			</div>
 			<h2 v-else style="color: red">There are no todos</h2>
